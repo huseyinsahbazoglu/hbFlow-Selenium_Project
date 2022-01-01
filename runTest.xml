@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="HepsiBuradaTestSuite" thread-count="4" parallel="none">
+
+    <test name="Solution Center Test via Chrome">
+        <groups>
+            <run>
+                <include name="runChromeTest" >
+                </include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.hepsiburada.runtest.TestSuiteChrome"/>
+        </classes>
+    </test>
+    <test name="Solution Center Test via Firefox">
+        <groups>
+            <run>
+                <include name="runFirefoxTest" >
+                </include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.hepsiburada.runtest.TestSuiteFirefox"/>
+        </classes>
+    </test>
+
+</suite>
+
+
+
