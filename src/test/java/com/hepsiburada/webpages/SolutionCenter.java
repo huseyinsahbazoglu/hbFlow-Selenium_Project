@@ -2,6 +2,7 @@ package com.hepsiburada.webpages;
 
 import com.hepsiburada.utilities.Environments;
 import com.hepsiburada.utilities.PageObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,7 +38,7 @@ public class SolutionCenter extends PageObject {
     @FindBy (xpath = "//*/text()[normalize-space(.)='Gönder']/parent::*")
     private WebElement callMeRequestSendButton;
 
-    @FindBy (xpath = "//*[@class='main-text']")
+    @FindBy (className = "main-text")
     private WebElement successfulDemand;
 
 
@@ -100,7 +101,8 @@ public class SolutionCenter extends PageObject {
     }
 
     public void assertCallRequest(){
-        Assert.assertEquals(successfulDemand,"Talebiniz oluşturuldu");
+        wait.until(ExpectedConditions.visibilityOf(successfulDemand));
+        Assert.assertEquals(successfulDemand.getText(),"Talebiniz oluşturuldu");
     }
 
     public SolutionCenter(WebDriver driver){ super(driver); }
